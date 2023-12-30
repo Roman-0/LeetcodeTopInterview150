@@ -1,6 +1,8 @@
 // Roman Olsen
 // Leetcode 88 Merge Sorted Vector
 //
+// Easy (3/10)
+//
 // Description: Instead of merging from the beginning like usual,
 // start from the end to prevent having to shift the values back.
 // Classic merge algorithm
