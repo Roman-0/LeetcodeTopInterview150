@@ -1,23 +1,27 @@
 //Roman Olsen
 //Leetcode top 150
-// Add Two Numbers
+// #2 Add Two Numbers
+//
+// You are given two non-empty linked lists representing two non-negative integers.
+// The digits are stored in reverse order, and each of their nodes contains a single digit.
+// Add the two numbers and return the sum as a linked list.
 //
 impl Solution {
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-        let mut return_list = Some(Box::new(ListNode::new(0))); // Corrected syntax for creating Option<Box<ListNode>>
-        let mut node = &mut return_list; // Corrected syntax for creating a mutable reference
+        let mut return_list = Some(Box::new(ListNode::new(0))); 
+        let mut node = &mut return_list;
 
         let mut l1c = l1.clone();
         let mut l2c = l2.clone();
 
-        let mut carry: u8 = 0; // Changed type to u8 to handle the carry
+        let mut carry: u8 = 0;
 
         while l1c.is_some() || l2c.is_some() || carry > 0 {
-            let val1: i32 = l1c.as_ref().map_or(0, |node| node.val); // Handle the case when l1c is None
-            let val2: i32 = l2c.as_ref().map_or(0, |node| node.val); // Handle the case when l2c is None
+            let val1: i32 = l1c.as_ref().map_or(0, |node| node.val); // when l1c is None
+            let val2: i32 = l2c.as_ref().map_or(0, |node| node.val); // when l2c is None
 
             let sum: u8 = (val1 + val2 + carry as i32) as u8;
             carry = sum / 10;
